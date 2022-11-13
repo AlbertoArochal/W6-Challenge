@@ -1,3 +1,4 @@
+/* eslint-disable for-direction */
 export const map = [];
 
 export const mapGenerator = (len) => {
@@ -13,17 +14,25 @@ export const mapGenerator = (len) => {
 //console.table(mapGenerator(6));
 mapGenerator(9);
 
-const DoA = (array) => {
-    array.map(function (list) {
-        list.forEach(function (element) {
-            let right = list[list.indexOf(element) - 1];
-            let left = list[list.indexOf(element) + 1];
-            if (!right === undefined && !left === undefined) {
-                element = right + left;
-            }
-        });
-        console.table(list);
-    });
+const sumHorizontals = (array) => {
+    let newArray = [];
+    let arrayElements = [];
+    for (let i = 0; i < array.length; i++) {
+        arrayElements = [];
+        for (let j = 0; j < array[i].length; j++) {
+            let left = array[i][j - 1];
+            left = left === undefined ? 0 : left;
+            let up = array[i + 1];
+            up = up === undefined ? 0 : array[i + 1][j];
+            let down = array[i - 1];
+            down = down === undefined ? 0 : array[i - 1][j];
+            let right = array[i][j + 1];
+            right = right === undefined ? 0 : right;
+            arrayElements.push(left + right + up + down);
+        }
+        newArray.push(arrayElements);
+    }
+    console.log(newArray);
 };
 
-DoA(map);
+sumHorizontals(map);
