@@ -1,7 +1,7 @@
 {
-    "name": "testing",
+    "name": "Game of Life",
     "version": "1.0.0",
-    "description": "Semana 4 ISDI Bootcamp",
+    "description": "Semana 6 ISDI Bootcamp",
     "main": "index.js",
     "type": "module",
     "scripts": {
