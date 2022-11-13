@@ -10,6 +10,20 @@ export const mapGenerator = (len) => {
     return map;
 };
 
-console.table(mapGenerator(6));
+//console.table(mapGenerator(6));
+mapGenerator(9);
 
-/*const DeadOrAlive = (position) => {};*/
+const DoA = (array) => {
+    array.map(function (list) {
+        list.forEach(function (element) {
+            let right = list[list.indexOf(element) - 1];
+            let left = list[list.indexOf(element) + 1];
+            if (!right === undefined && !left === undefined) {
+                element = right + left;
+            }
+        });
+        console.table(list);
+    });
+};
+
+DoA(map);
