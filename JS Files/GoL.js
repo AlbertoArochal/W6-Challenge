@@ -11,28 +11,43 @@ export const mapGenerator = (len) => {
     return map;
 };
 
+/*const neighborsMatrix = (axis) => {
+    const neigh = [];
+    for (let i = -1; i < 2; i++) {
+        for (let j = -1; j < 2; i++) {
+            let xN = (axis + j + map.length) % map.length;
+            let yN = (axis + i + map.length) % map.length;
+
+            if (i != 0 || j != 0) {
+                neigh.push(xN);
+                neigh.push(yN);
+            }
+        }
+    }
+};
+
+const mapRunner = (array, callback) => {
+    for (let i = 0; i < array.length; i++) {
+        array[i].forEach((cell) => callback(cell));
+    }
+};*/
+
 //console.table(mapGenerator(6));
 mapGenerator(9);
 
-const sumHorizontals = (array) => {
-    let newArray = [];
-    let arrayElements = [];
-    for (let i = 0; i < array.length; i++) {
-        arrayElements = [];
-        for (let j = 0; j < array[i].length; j++) {
-            let left = array[i][j - 1];
-            left = left === undefined ? 0 : left;
-            let up = array[i + 1];
-            up = up === undefined ? 0 : array[i + 1][j];
-            let down = array[i - 1];
-            down = down === undefined ? 0 : array[i - 1][j];
-            let right = array[i][j + 1];
-            right = right === undefined ? 0 : right;
-            arrayElements.push(left + right + up + down);
+//mapRunner(map, neighborsMatrix);
+
+const tostringe = (array) => {
+    for (let i = 0; i <= array.length; i++) {
+        try {
+            console.log(array[i].toString());
+        } catch (error) {
+            i++;
+        } finally {
+            continue;
         }
-        newArray.push(arrayElements);
     }
-    console.log(newArray);
 };
 
-sumHorizontals(map);
+const arrayprueba = [1, 2, 3, 4, 5, undefined, null, 6, 38];
+tostringe(arrayprueba);
