@@ -60,7 +60,7 @@ tostringe(arrayprueba);*/
 };
 */
 
-const DoA = (array) => {
+/*const DoA = (array) => {
     let cellvalue = [];
     let cumulator = [];
     for (let i = 0; i < array.length; i++) {
@@ -115,6 +115,49 @@ const DoA = (array) => {
         }
     }
     console.log(cellvalue);
+};*/
+
+const DoA = (array) => {
+    console.table(map);
+    const newMap = [];
+    let cellvalue = [];
+    let cumulator = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            for (let k = -1; k < 2; k++) {
+                let errorcount = 0;
+                try {
+                    cumulator.push(array[i + k][j]);
+                    errorcount = 0;
+                } catch {
+                    errorcount++;
+                } finally {
+                    if (errorcount === 0) {
+                        cumulator.push(
+                            array[i + k][j - 1] === undefined
+                                ? 0
+                                : array[i + k][j - 1]
+                        );
+                        cumulator.push(
+                            array[i + k][j + 1] === undefined
+                                ? 0
+                                : array[i + k][j + 1]
+                        );
+                    }
+                    continue;
+                }
+            }
+            cellvalue.push(
+                cumulator.reduce((partialSum, a) => partialSum + a, 0) -
+                    array[i][j]
+            );
+            cumulator = [];
+            newMap.push(cellvalue);
+            cellvalue = [];
+        }
+    }
+    console.log(newMap);
+    console.log(newMap.length);
 };
 
 DoA(map);

@@ -60,3 +60,22 @@ const mapRunner = (array, callback) => {
         array[i].forEach((cell) => callback(cell));
     }
 };*/
+
+const DoA = (array) => {
+    const cellvalue = [];
+    const cumulator = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; i++) {
+            for (k = -1; k < 2; k++) {
+                try {
+                    cumulator.push(array[i + k][j]);
+                } catch {
+                    k++;
+                } finally {
+                    continue;
+                }
+            }
+            console.log(cumulator);
+        }
+    }
+};
