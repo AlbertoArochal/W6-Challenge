@@ -11,7 +11,7 @@ export const mapGenerator = (len) => {
     return map;
 };
 
-const neighborsMatrix = (axis) => {
+/*const neighborsMatrix = (axis) => {
     const neigh = [];
     for (let i = -1; i < 2; i++) {
         for (let j = -1; j < 2; i++) {
@@ -30,9 +30,24 @@ const mapRunner = (array, callback) => {
     for (let i = 0; i < array.length; i++) {
         array[i].forEach((cell) => callback(cell));
     }
-};
+};*/
 
 //console.table(mapGenerator(6));
 mapGenerator(9);
 
-mapRunner(map, neighborsMatrix);
+//mapRunner(map, neighborsMatrix);
+
+const tostringe = (array) => {
+    for (let i = 0; i <= array.length; i++) {
+        try {
+            console.log(array[i].toString());
+        } catch (error) {
+            i++;
+        } finally {
+            continue;
+        }
+    }
+};
+
+const arrayprueba = [1, 2, 3, 4, 5, undefined, null, 6, 38];
+tostringe(arrayprueba);
