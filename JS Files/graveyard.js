@@ -61,21 +61,91 @@ const mapRunner = (array, callback) => {
     }
 };*/
 
-const DoA = (array) => {
-    const cellvalue = [];
-    const cumulator = [];
+/*const arrayprueba = [1, 2, 3, 4, 5, undefined, null, 6, 38];
+tostringe(arrayprueba);*/
+
+/*const DoA = (array) => {
+    let cellvalue = [
+        array[i + 1][j + 1],
+        array[i + 1][j],
+        array[i + 1][j - 1],
+        array[i][j + 1],
+        array[i][j - 1],
+        array[i - 1][j - 1],
+        array[i - 1][j + 1],
+    ];
+    let newArray = [];
+    let newElements = [];
     for (let i = 0; i < array.length; i++) {
-        for (let j = 0; j < array[i].length; i++) {
-            for (k = -1; k < 2; k++) {
+        for (let j = 0; j < array[i]; j++) {
+            for (let element = 0; element <= cellvalue.length; element++) {
                 try {
-                    cumulator.push(array[i + k][j]);
-                } catch {
-                    k++;
+                    return console.log(cellvalue[element]);
+                } catch (error) {
+                    element++;
+                    console.log("ha habido un error");
                 } finally {
                     continue;
                 }
             }
-            console.log(cumulator);
         }
     }
 };
+*/
+
+/*const DoA = (array) => {
+    let cellvalue = [];
+    let cumulator = [];
+    for (let i = 0; i < array.length; i++) {
+        for (let j = 0; j < array[i].length; j++) {
+            for (let k = -1; k < 2; k++) {
+                try {
+                    cumulator.push(array[i + k][j]);
+                    try {
+                        cumulator.push(
+                            array[i + k][j + k] === undefined
+                                ? 0
+                                : array[i + k][j + k]
+                        );
+                    } catch (error) {
+                        console.log("there was an error");
+                    } finally {
+                        continue;
+                    }
+                } catch (error) {
+                    k++;
+                } finally {
+                    if (cumulator.length === 8) {
+                        if (
+                            cumulator.reduce(
+                                (partialSum, a) => partialSum + a,
+                                0
+                            ) === 3
+                        ) {
+                            cellvalue.push(1);
+                        }
+                        if (
+                            cumulator.reduce(
+                                (partialSum, a) => partialSum + a,
+                                0
+                            ) > 3
+                        ) {
+                            cellvalue.push(0);
+                        }
+                        if (
+                            cumulator.reduce(
+                                (partialSum, a) => partialSum + a,
+                                0
+                            ) < 3
+                        ) {
+                            cellvalue.push(0);
+                        }
+                        cumulator = [];
+                    }
+                    continue;
+                }
+            }
+        }
+    }
+    console.log(cellvalue);
+};*/
