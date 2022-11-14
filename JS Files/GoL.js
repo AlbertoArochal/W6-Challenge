@@ -24,7 +24,6 @@ const DoA = (array) => {
                 let errorcount = 0;
                 try {
                     cumulator.push(array[i + k][j]);
-                    errorcount = 0;
                 } catch {
                     errorcount++;
                 } finally {
@@ -40,7 +39,6 @@ const DoA = (array) => {
                                 : array[i + k][j + 1]
                         );
                     }
-                    continue;
                 }
             }
             cellvalue.push(
