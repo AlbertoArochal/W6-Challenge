@@ -1,4 +1,4 @@
-import { map, mapGenerator } from "./GoL";
+import { mapGenerator } from "./GoL";
 
 const mapSizes = [12, 5, 28, 10, 96];
 
