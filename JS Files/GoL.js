@@ -17,40 +17,49 @@ const DoA = (array) => {
     console.table(map);
     const newMap = [];
     let cellvalue = [];
-    let cumulator = [];
+    let cumulator = 0;
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
             for (let k = -1; k < 2; k++) {
                 let errorcount = 0;
                 try {
-                    cumulator.push(array[i + k][j]);
+                    cumulator += array[i + k][j];
                 } catch {
                     errorcount++;
                 } finally {
                     if (errorcount === 0) {
-                        cumulator.push(
+                        cumulator +=
                             array[i + k][j - 1] === undefined
                                 ? 0
-                                : array[i + k][j - 1]
-                        );
-                        cumulator.push(
+                                : array[i + k][j - 1];
+                        cumulator +=
                             array[i + k][j + 1] === undefined
                                 ? 0
-                                : array[i + k][j + 1]
-                        );
+                                : array[i + k][j + 1];
                     }
                 }
             }
-            cellvalue.push(
-                cumulator.reduce((partialSum, a) => partialSum + a, 0) -
-                    array[i][j]
-            );
-            cumulator = [];
+            cellvalue.push(cumulator - array[i][j]);
+            cumulator = 0;
             newMap.push(cellvalue);
-            cellvalue = [];
         }
     }
-    return newMap;
+    return newMap[0];
 };
 
-console.log(DoA(map));
+const neighbors = DoA(map);
+
+const segmentator = (scores) => {
+    const newNeigh = [];
+    let newRow = [];
+    scores.forEach(function (score) {
+        newRow.push(score);
+        if (newRow.length === 9) {
+            newNeigh.push(newRow);
+            newRow = [];
+        }
+    });
+    return newNeigh;
+};
+
+console.table(segmentator(neighbors));
