@@ -1,5 +1,10 @@
 /* eslint-disable for-direction */
 export const map = [];
+const arraymap = [
+    [1, 0, 0],
+    [1, 0, 0],
+    [1, 0, 0],
+];
 
 export const mapGenerator = (len) => {
     for (let i = 0; i < len; i++) {
@@ -11,7 +16,7 @@ export const mapGenerator = (len) => {
     return map;
 };
 
-mapGenerator(5);
+mapGenerator(3);
 
 export const DoA = (array) => {
     console.table(map);
@@ -49,12 +54,14 @@ export const DoA = (array) => {
 
 export const neighbors = DoA(map);
 
+console.log(neighbors);
+
 export const segmentator = (scores) => {
     const newNeigh = [];
     let newRow = [];
     scores.forEach(function (score) {
         newRow.push(score);
-        if (newRow.length === 5) {
+        if (newRow.length === 3) {
             newNeigh.push(newRow);
             newRow = [];
         }
@@ -69,13 +76,19 @@ const newMapper = (array, neighbors) => {
             if (array[i][j] === 1 && neighbors[i][j] === 2) {
                 newMap.push(1);
             }
-            if (array[i][j] === 1 && neighbors[i][j] === 2) {
+            if (array[i][j] === 1 && neighbors[i][j] === 3) {
                 newMap.push(1);
             }
             if (array[i][j] === 0 && neighbors[i][j] === 3) {
                 newMap.push(1);
             }
-            {
+            if (array[i][j] === 0 && neighbors[i][j] != 3) {
+                newMap.push(0);
+            }
+            if (array[i][j] === 1 && neighbors[i][j] > 3) {
+                newMap.push(0);
+            }
+            if (array[i][j] === 1 && neighbors[i][j] < 2) {
                 newMap.push(0);
             }
         }
