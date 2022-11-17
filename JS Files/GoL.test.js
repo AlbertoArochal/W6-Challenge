@@ -1,4 +1,10 @@
-import { mapGenerator, DoA, segmentator, newMapper } from "./GoL.js";
+import {
+    mapGenerator,
+    DoA,
+    segmentator,
+    newMapper,
+    gameOfLife,
+} from "./GoL.js";
 
 const mapSizes = [12, 5, 28, 10, 96];
 const arraymap = [
@@ -21,18 +27,16 @@ const newArrayMap = [
     [0, 0, 0],
 ];
 
-mapSizes.forEach((element) =>
-    describe(`Given ${mapSizes.element}`, () => {
-        describe("Receive number as length and number of items", () => {
-            test(`Return number of cells`, () => {
-                let size = mapGenerator(mapSizes[element]);
-                const result = size ** 2;
-                const expected = mapSizes[element] ** 2;
-                expect(result).toBe(expected);
-            });
+describe(`Given len`, () => {
+    describe("Receive number as length and number of items", () => {
+        test(`Return number of cells`, () => {
+            let size = mapGenerator(12);
+            const result = size.length ** 2;
+            const expected = 12 ** 2;
+            expect(result).toBe(expected);
         });
-    })
-);
+    });
+});
 
 neighbors.forEach((element) => {
     describe(`Given ${arraymap}`, () => {
@@ -78,6 +82,16 @@ describe(`Given ${neighbors} and ${arraymap}`, () => {
             const result = segmentator(newMapper(arraymap, segmentNeigh), 3);
             const expected = newArrayMap;
             expect(result[1][2]).toBe(expected[1][2]);
+        });
+    });
+});
+
+describe(`Given number`, () => {
+    describe("Receive array", () => {
+        test(`Return return array of arrays`, () => {
+            const result = gameOfLife(3);
+            const expected = 3 ** 3;
+            expect(result.length).toBe(expected);
         });
     });
 });
