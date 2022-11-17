@@ -100,9 +100,10 @@ export const gameOfLife = (len) => {
         let newMap = newMapper(map, neighSeg);
         newMap = segmentator(newMap, len);
         map = newMap;
-        return console.table(newMap);
+        console.table(newMap);
+        return newMap;
     };
     setInterval(tempun, 1000);
 };
 
-gameOfLife(9);
+gameOfLife(20);
