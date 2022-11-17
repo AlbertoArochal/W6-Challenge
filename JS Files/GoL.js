@@ -88,7 +88,8 @@ export const newMapper = (array, neighbors) => {
     return newMap;
 };
 
-/*export const gameOfLife = (len) => {
+export const gameOfLife = (len) => {
+    let repetitions = 0;
     let map = mapGenerator(len);
     console.table(map);
     const tempun = function (mapa) {
@@ -99,10 +100,13 @@ export const newMapper = (array, neighbors) => {
         newMap = segmentator(newMap, len);
         map = newMap;
         console.table(newMap);
+        repetitions++;
         return newMap;
     };
-    setInterval(tempun, 1000);
+    if (repetitions < 10) {
+        setInterval(tempun, 1000);
+    }
 };
-
+/*
 gameOfLife(20);
 */
