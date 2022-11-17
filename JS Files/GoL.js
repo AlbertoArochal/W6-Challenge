@@ -88,7 +88,7 @@ export const newMapper = (array, neighbors) => {
     return newMap;
 };
 
-export const gameOfLife = (len) => {
+/*export const gameOfLife = (len) => {
     let map = mapGenerator(len);
     console.table(map);
     const tempun = function (mapa) {
@@ -105,3 +105,4 @@ export const gameOfLife = (len) => {
 };
 
 gameOfLife(20);
+*/
