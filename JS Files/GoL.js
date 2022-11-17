@@ -106,4 +106,4 @@ export const gameOfLife = (len) => {
     setInterval(tempun, 1000);
 };
 
-gameOfLife(20);
+// gameOfLife(20);
