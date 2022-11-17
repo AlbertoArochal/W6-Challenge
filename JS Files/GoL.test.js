@@ -1,4 +1,4 @@
-import { mapGenerator, DoA, segmentator } from "./GoL";
+import { mapGenerator, DoA, segmentator, newMapper, map } from "./GoL.js";
 
 const mapSizes = [12, 5, 28, 10, 96];
 const arraymap = [
@@ -15,8 +15,11 @@ const segmentNeigh = [
     [1, 2, 0],
 ];
 
-let rows = 0;
-let units = 0;
+const newArrayMap = [
+    [0, 0, 0],
+    [1, 1, 0],
+    [0, 0, 0],
+];
 
 mapSizes.forEach((element) =>
     describe(`Given ${mapSizes.element}`, () => {
@@ -50,6 +53,18 @@ describe(`Given ${neighbors}`, () => {
             const result = segmentNeigh.length;
             const expected = segmentator(neighbors, 3);
             expect(result).toBe(expected.length);
+        });
+    });
+});
+
+describe(`Given ${neighbors} and ${map}`, () => {
+    describe("Receive 2 arrays", () => {
+        test(`Return new array`, () => {
+            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const expected = newArrayMap;
+            expect(result[1][1]).toBe(expected[1][1]);
+            expect(result[2][0]).toBe(expected[2][0]);
+            expect(result[0][2]).toBe(expected[0][2]);
         });
     });
 });

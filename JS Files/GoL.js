@@ -56,12 +56,12 @@ export const neighbors = DoA(map);
 
 console.log(neighbors);
 
-export const segmentator = (scores) => {
+export const segmentator = (scores, len) => {
     const newNeigh = [];
     let newRow = [];
     scores.forEach(function (score) {
         newRow.push(score);
-        if (newRow.length === 3) {
+        if (newRow.length === len) {
             newNeigh.push(newRow);
             newRow = [];
         }
@@ -69,7 +69,7 @@ export const segmentator = (scores) => {
     return newNeigh;
 };
 
-const newMapper = (array, neighbors) => {
+export const newMapper = (array, neighbors) => {
     const newMap = [];
     for (let i = 0; i < array.length; i++) {
         for (let j = 0; j < array[i].length; j++) {
@@ -96,8 +96,8 @@ const newMapper = (array, neighbors) => {
     return newMap;
 };
 
-const neighSeg = segmentator(neighbors);
+const neighSeg = segmentator(neighbors, 3);
 
 console.table(neighSeg);
 
-console.table(segmentator(newMapper(map, neighSeg)));
+console.table(segmentator(newMapper(map, neighSeg), 3));
