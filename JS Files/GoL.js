@@ -90,7 +90,7 @@ export const newMapper = (array, neighbors) => {
 
 // const neighSeg = segmentator(neighbors, 3);
 
-export const gameOfLife = (len) => {
+/*export const gameOfLife = (len) => {
     let map = mapGenerator(len);
     console.table(map);
     const tempun = function (mapa) {
@@ -104,6 +104,6 @@ export const gameOfLife = (len) => {
         return newMap;
     };
     setInterval(tempun, 1000);
-};
+};*/
 
 // gameOfLife(20);
