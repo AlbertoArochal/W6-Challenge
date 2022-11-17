@@ -1,4 +1,10 @@
-import { mapGenerator, DoA, segmentator, newMapper } from "./GoL.js";
+import {
+    mapGenerator,
+    DoA,
+    segmentator,
+    newMapper,
+    gameOfLife,
+} from "./GoL.js";
 
 const mapSizes = [12, 5, 28, 10, 96];
 const arraymap = [
@@ -80,7 +86,7 @@ describe(`Given ${neighbors} and ${arraymap}`, () => {
     });
 });
 
-/*describe(`Given number`, () => {
+describe(`Given number`, () => {
     describe("Receive array", () => {
         test(`Return return array of arrays`, () => {
             const result = gameOfLife(3);
@@ -88,4 +94,4 @@ describe(`Given ${neighbors} and ${arraymap}`, () => {
             expect(result.length).toBe(expected);
         });
     });
-});*/
+});
