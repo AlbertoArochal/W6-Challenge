@@ -46,7 +46,7 @@ neighbors.forEach((element) => {
     });
     counter++;
 });
-
+1;
 describe(`Given ${neighbors}`, () => {
     describe("Receive array", () => {
         test(`Return return array of arrays`, () => {
@@ -62,9 +62,22 @@ describe(`Given ${neighbors} and ${map}`, () => {
         test(`Return new array`, () => {
             const result = segmentator(newMapper(map, segmentNeigh), 3);
             const expected = newArrayMap;
-            expect(result[1][1]).toBe(expected[1][1]);
             expect(result[2][0]).toBe(expected[2][0]);
+        });
+        test(`Return new array`, () => {
+            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const expected = newArrayMap;
+            expect(result[1][1]).toBe(expected[1][1]);
+        });
+        test(`Return new array`, () => {
+            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const expected = newArrayMap;
             expect(result[0][2]).toBe(expected[0][2]);
+        });
+        test(`Return new array`, () => {
+            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const expected = newArrayMap;
+            expect(result[1][2]).toBe(expected[1][2]);
         });
     });
 });
