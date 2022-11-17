@@ -1,10 +1,5 @@
 /* eslint-disable for-direction */
 export const map = [];
-const arraymap = [
-    [1, 0, 0],
-    [1, 0, 0],
-    [1, 0, 0],
-];
 
 export const mapGenerator = (len) => {
     for (let i = 0; i < len; i++) {
@@ -54,8 +49,6 @@ export const DoA = (array) => {
 
 export const neighbors = DoA(map);
 
-console.log(neighbors);
-
 export const segmentator = (scores, len) => {
     const newNeigh = [];
     let newRow = [];
@@ -97,7 +90,3 @@ export const newMapper = (array, neighbors) => {
 };
 
 const neighSeg = segmentator(neighbors, 3);
-
-console.table(neighSeg);
-
-console.table(segmentator(newMapper(map, neighSeg), 3));
