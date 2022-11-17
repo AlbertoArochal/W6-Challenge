@@ -1,6 +1,7 @@
 # THE GAME OF LIFE
 
 ![Alt text](./img/rey-leon.jpg "THE GAME OF LIFE")
+
 Un resumen de las reglas:
 
 Una célula viva sigue las siguientes reglas:
