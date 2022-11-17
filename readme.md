@@ -1,6 +1,6 @@
 # THE GAME OF LIFE
 
-![Alt text](./img/rey-leon.jpg "THE GAME OF LIFE")
+![Alt text](./img/alive.jpg "THE GAME OF LIFE")
 
 Un resumen de las reglas:
 
