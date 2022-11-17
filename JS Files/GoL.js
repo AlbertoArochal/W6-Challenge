@@ -1,7 +1,7 @@
 /* eslint-disable for-direction */
-export const map = [];
 
 export const mapGenerator = (len) => {
+    let map = [];
     for (let i = 0; i < len; i++) {
         let temParray = Array.from({ length: len }, () =>
             Math.floor(Math.random() * 2)
@@ -11,10 +11,9 @@ export const mapGenerator = (len) => {
     return map;
 };
 
-mapGenerator(3);
+//mapGenerator(3);
 
 export const DoA = (array) => {
-    console.table(map);
     const newMap = [];
     let cellvalue = [];
     let cumulator = 0;
@@ -47,7 +46,7 @@ export const DoA = (array) => {
     return newMap[0];
 };
 
-export const neighbors = DoA(map);
+// export const neighbors = DoA(map);
 
 export const segmentator = (scores, len) => {
     const newNeigh = [];
@@ -89,4 +88,21 @@ export const newMapper = (array, neighbors) => {
     return newMap;
 };
 
-const neighSeg = segmentator(neighbors, 3);
+// const neighSeg = segmentator(neighbors, 3);
+
+export const gameOfLife = (len) => {
+    let map = mapGenerator(len);
+    console.table(map);
+    const tempun = function (mapa) {
+        mapa = map;
+        let neighbors = DoA(map);
+        let neighSeg = segmentator(neighbors, len);
+        let newMap = newMapper(map, neighSeg);
+        newMap = segmentator(newMap, len);
+        map = newMap;
+        return console.table(newMap);
+    };
+    setInterval(tempun, 1000);
+};
+
+gameOfLife(9);

@@ -1,4 +1,4 @@
-import { mapGenerator, DoA, segmentator, newMapper, map } from "./GoL.js";
+import { mapGenerator, DoA, segmentator, newMapper } from "./GoL.js";
 
 const mapSizes = [12, 5, 28, 10, 96];
 const arraymap = [
@@ -57,25 +57,25 @@ describe(`Given ${neighbors}`, () => {
     });
 });
 
-describe(`Given ${neighbors} and ${map}`, () => {
+describe(`Given ${neighbors} and ${arraymap}`, () => {
     describe("Receive 2 arrays", () => {
         test(`Return new array`, () => {
-            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const result = segmentator(newMapper(arraymap, segmentNeigh), 3);
             const expected = newArrayMap;
             expect(result[2][0]).toBe(expected[2][0]);
         });
         test(`Return new array`, () => {
-            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const result = segmentator(newMapper(arraymap, segmentNeigh), 3);
             const expected = newArrayMap;
             expect(result[1][1]).toBe(expected[1][1]);
         });
         test(`Return new array`, () => {
-            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const result = segmentator(newMapper(arraymap, segmentNeigh), 3);
             const expected = newArrayMap;
             expect(result[0][2]).toBe(expected[0][2]);
         });
         test(`Return new array`, () => {
-            const result = segmentator(newMapper(map, segmentNeigh), 3);
+            const result = segmentator(newMapper(arraymap, segmentNeigh), 3);
             const expected = newArrayMap;
             expect(result[1][2]).toBe(expected[1][2]);
         });
